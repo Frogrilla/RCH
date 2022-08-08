@@ -47,9 +47,11 @@ namespace RCH.CI
             {
                 case EKeyboardKey.Right:
                     Manager.Index++;
+                    Manager.ForceUpdate();
                     break;
                 case EKeyboardKey.Left:
                     Manager.Index--;
+                    Manager.ForceUpdate();
                     break;
                 case EKeyboardKey.Enter:
                     Manager.Enabled ^= true;
