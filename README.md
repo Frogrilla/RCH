@@ -8,6 +8,8 @@ When the scoreboard text changes, instead of using the game's text, my mod overr
 ### Customising your headers:
 Once the mod has run once, a file called `Custom Headers.txt` will appear in the same folder as `RCH.dll`. Each line in the file is a custom header that you can change. You can have as many as you like. The text surrounded by curly braces is dynamic text. The next paragraph explains how it works and how to use it.
 
+### Keyboard controls:
+RCH has keyboard controls, which provide easy access to managing the mod. The current controls are `[` for going to the previous header, `]` for going to the next header, and `ENTER` for toggling if the mod is enabled.
 
 ### Dynamic text:
 Dynamic text is a feature which allows you to include some values into your custom header. They are all wrapped in curly braces. Instead of displaying the input, the output will be displayed on the scoreboard.
