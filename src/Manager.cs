@@ -23,7 +23,7 @@ namespace RCH
         };
         internal static string[] CustomTexts = new string[]
         {
-            "{count}/{max}    {public} {mode}: {name}", "{count}/{max}    ROOM HIDDEN", "{name}", "HIDDEN"
+            "{name}", "HIDDEN"
         };
         private static int index = 0;
         internal static int Index
@@ -33,6 +33,10 @@ namespace RCH
             {
                 if (value < 0) index = CustomTexts.Length - 1;
                 else index = value % CustomTexts.Length;
+
+                ForceUpdate();
+
+                Console.WriteLine($"RCH header set to index {index}:\n{CustomTexts[index]}");
             }
         }
         private static bool enabled = true;
@@ -45,7 +49,9 @@ namespace RCH
                 else HarmonyPatches.RemoveHarmonyPatches();
 
                 enabled = value;
-                if (PhotonNetwork.InRoom) Manager.ForceUpdate();
+                ForceUpdate();
+
+                Console.WriteLine($"RCH is {(enabled ? "enabled" : "disabled")}");
             }
         }
         internal static string GenDynamicText(string text)
@@ -64,6 +70,7 @@ namespace RCH
         }
         internal static void ForceUpdate()
         {
+            if (!PhotonNetwork.InRoom) return;
             Console.WriteLine("Forcing scoreboard updates");
             foreach(GorillaScoreBoard board in Resources.FindObjectsOfTypeAll<GorillaScoreBoard>())
             {
