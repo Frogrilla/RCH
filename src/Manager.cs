@@ -71,11 +71,11 @@ namespace RCH
         internal static void ForceUpdate()
         {
             if (!PhotonNetwork.InRoom) return;
-            Console.WriteLine("Forcing scoreboard updates");
+            //Console.WriteLine("Forcing scoreboard updates");
             foreach(GorillaScoreBoard board in Resources.FindObjectsOfTypeAll<GorillaScoreBoard>())
             {
                 board.RedrawPlayerLines();
-                Console.WriteLine($"{board.name} updated");
+                //Console.WriteLine($"{board.name} updated");
             }
         }
         internal static bool Prefix(ref string __result)
